@@ -20,8 +20,20 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform wallCheckRight;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Vector2 wallCheckSize;
+    
     private bool isWalled;
     private bool isWallSliding;
+
+    // dashing shenanigans
+    private bool canDash = true;
+    private bool isDashing;
+    [SerializeField] private float dashingPower = 24f;
+    [SerializeField] private float dashingTime = 0.2f;
+    [SerializeField] private float dashingCooldown = 1f;
+    [SerializeField] private TrailRenderer tr;
+
+
+
     // called once
     private void Start()
     {
@@ -34,6 +46,10 @@ public class Movement : MonoBehaviour
     // called every frame
     private void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
@@ -43,6 +59,11 @@ public class Movement : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
         }
 
         UpdateAnimationUpdate();
@@ -88,7 +109,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-
     private void WallSlide()
     {
         if (isWalled && !isGrounded() && dirX != 0f)
@@ -106,5 +126,30 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, -wallSlidingSpeed);
         }
+    }
+
+    // dashing 
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        if (sprite.flipX)
+        {
+            rb.velocity = new Vector2(-1 * transform.localScale.x * dashingPower, 0f);
+        }
+        else
+        {
+            rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        }
+        
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 }
