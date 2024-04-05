@@ -14,7 +14,6 @@ public class PlayerCollision : MonoBehaviour
 
 
 
-    // collision with obstacles and stuff?
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Win"))
