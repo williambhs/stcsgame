@@ -10,6 +10,10 @@ public class SpeedUp : PowerupEffect
     public override void Apply(GameObject target)
     {
         target.GetComponent<Movement>().moveSpeed += amount;
+        if (target.GetComponent<Movement>().moveSpeed < 0)
+        {
+            target.GetComponent<Movement>().moveSpeed = 1;
+        }
     }
 
 }
