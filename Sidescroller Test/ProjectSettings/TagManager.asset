@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Ground
+=======
+  - Win
+  - Speedup
+>>>>>>> af7c4642a24c020dad0375f0779b153807b08ded
   layers:
   - Default
   - TransparentFX

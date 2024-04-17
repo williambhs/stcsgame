@@ -11,7 +11,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
 
     private float dirX;
-    [SerializeField] private float moveSpeed = 7f;
+    // maybe change back to private
+    [SerializeField] public float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 10f;
 
     // wallsliding shenanigans
@@ -61,7 +62,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E)) && canDash)
         {
             StartCoroutine(Dash());
         }
@@ -69,7 +70,8 @@ public class Movement : MonoBehaviour
         UpdateAnimationUpdate();
         WallSlide();
         CheckWorld();
-    }
+    } 
+
 
     private void UpdateAnimationUpdate()
     {
@@ -152,4 +154,5 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
+
 }
