@@ -1,18 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreData : MonoBehaviour
+[Serializable]
+public class ScoreData 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<Score> scores;
 
-    // Update is called once per frame
-    void Update()
+    public ScoreData()
     {
-        
+        scores = new List<Score>();
     }
 }

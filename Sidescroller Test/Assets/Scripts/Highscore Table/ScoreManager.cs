@@ -1,18 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
 
 public class ScoreManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private ScoreData sd;
+    void Awake()
     {
-        
+        var json = PlayerPrefs.GetString("scores", "{}");
+        sd = JsonUtility.FromJson<ScoreData>(json);
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerable<Score> GetHighScores()
     {
-        
+        return sd.scores.OrderByDescending(x => x.score);
+    }
+
+    public void AddScore(Score score)
+    {
+        sd.scores.Add(score);
+    }
+
+    private void OnDestroy()
+    {
+        SaveScore();
+    }
+
+    public void SaveScore()
+    {
+        var json = JsonUtility.ToJson(sd);
+        PlayerPrefs.SetString("scores", json);
     }
 }
