@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.iOS;
 public class ReworkedMovement : MonoBehaviour
 {
 
@@ -9,6 +10,8 @@ public class ReworkedMovement : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
+    [SerializeField] private float maxCount;
+    private float rampUpDelay = 4;
     [SerializeField] private float impulseX = 5;
     [SerializeField] private float impulseY = 0;
     public Rigidbody2D body;
@@ -17,14 +20,15 @@ public class ReworkedMovement : MonoBehaviour
     private bool bombIsActive = false;
     private GameObject bombInstance;
     private bool slideReady;
-    private float currentSpeed;
-    private float hinderanceTimeRemaining = 0;
-    private bool hinderance;
+    private float currentSpeed = 0;
+    private float bombWaitTimeRemaining = 0;
+    private bool bombIsReady;
     //checks how much longer the player should be sliding for. This is for animation
     private float slideTimeRemaining = 0;
     //checks how much longer until player can slide again
     private float slideReadyTimeRemaining = 0;
     private bool isSliding;
+    float count;
     bool isMovingDueToExplosion = false;
     [SerializeField] private float slidePower;
 
@@ -36,7 +40,7 @@ public class ReworkedMovement : MonoBehaviour
         isSliding = false;
         slideReady = true;
         isSliding = false;
-        hinderance = false;
+        bombIsReady = true;
 
     }
     // Start is called before the first frame update
@@ -57,6 +61,12 @@ public class ReworkedMovement : MonoBehaviour
         }
 
         float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalSpeed = horizontalInput * speed;
+
+        //body.velocity = new Vector2((horizontalInput * speed) /*/ count*/, body.velocity.y);
+
+        //body.velocity = new Vector2(body.velocity.x + horizontalSpeed, body.velocity.y);
+
 
         // Only allow the horizontal input to influence the velocity if we're not moving due
         // to the explosion.
@@ -65,17 +75,19 @@ public class ReworkedMovement : MonoBehaviour
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
         }
 
-        /*if (horizontalInput != 0)
-        {
-            if (hinderance == true)
-            {
-                body.velocity = new Vector2(horizontalInput * speed - 4, body.velocity.y);
-            }
-            else
-            {
-                body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
-            } 
-        }*/
+        //this is to ramp up speed if player is running in the same direction constantly                                 // this is to get the rampup started
+        /*(* if ((currentSpeed < body.velocity.x && body.velocity.x > 0) || (currentSpeed > body.velocity.x && body.velocity.x < 0) || count == 250)
+         {
+             count--;
+             /*if (count > maxCount)
+             {
+                 body.velocity = new Vector2(horizontalInput * speed - 4, body.velocity.y);
+             }
+             else
+             {
+                 body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+             } 
+         }*/
 
         //flip player when moving in respective direction
         if (horizontalInput > 0.01f)
@@ -119,6 +131,34 @@ public class ReworkedMovement : MonoBehaviour
             Slide();
         }
         
+        if (Input.GetKey(KeyCode.X) && bombIsReady == true)
+        {
+             //if (!bombIsActive)
+            {
+                // If there was a bomb in the scene, it is no longer active. So remove it before
+                // creating a new instance.
+
+                if (bombInstance != null)
+                {
+                    Destroy(bombInstance);
+                }
+
+                bombInstance = Instantiate(bombPrefab);
+
+                var explosion = bombInstance.GetComponent<Explosion>();
+                var bombRigidBody = bombInstance.GetComponent<Rigidbody2D>();
+
+                bombInstance.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
+                //here should be where bomb gets force applied to be thrown in direction player is looking
+
+                explosion.Exploded += OnBombExploded;
+                bombIsReady = false;
+                bombWaitTimeRemaining = 5;
+                bombRigidBody.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
+
+                //bombIsActive = true;
+            }
+        }
         //checking if the player is sliding for animation 
         if (isSliding == true)
         {
@@ -150,6 +190,20 @@ public class ReworkedMovement : MonoBehaviour
       
             }
         }
+
+        if (bombIsReady == false)
+        {
+            if (bombWaitTimeRemaining > 0)
+            {
+                bombWaitTimeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                bombWaitTimeRemaining = 0;
+                bombIsReady = true;
+
+            }
+        }
         //checking if hinderance from jumping should still be applied to speed
         /*if (hinderance == true)
         {
@@ -166,6 +220,16 @@ public class ReworkedMovement : MonoBehaviour
         }*/
     }
 
+
+
+
+
+// helper functions
+
+
+
+
+
    private void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, jumpPower);
@@ -174,37 +238,15 @@ public class ReworkedMovement : MonoBehaviour
         /*hinderance = true;
         hinderanceTimeRemaining = 1.25f;*/
 
-        if (false && !bombIsActive)
-        {
-            // If there was a bomb in the scene, it is no longer active. So remove it before
-            // creating a new instance.
-
-            if (bombInstance != null)
-            {
-                Destroy(bombInstance);
-            }
-
-            bombInstance = Instantiate(bombPrefab);
-
-            var explosion = bombInstance.GetComponent<Explosion>();
-
-            bombInstance.transform.position = transform.position;
-
-            explosion.Exploded += OnBombExploded;
-
-            bombIsActive = true;
-        }
     }
 
     private void Slide()
     {
-        /*hinderance = false;
-        hinderanceTimeRemaining = 0;*/
         anim.SetBool("sliding", true);
         if (slidePower == 1)
         {
-            Vector2 slideForce = new Vector2(10, 0);
-            body.AddForce(slideForce);
+            Vector2 slideForce = new Vector2(body.velocity.x + 10, 0);
+            body.AddForce(slideForce, ForceMode2D.Impulse);
                 
         }
 
@@ -240,7 +282,7 @@ public class ReworkedMovement : MonoBehaviour
         //body.velocity += powers;
 
         Vector2 force = explosion.GetAppliedForce(transform.position);
-        force.y = 0;
+        //force.y = 0;
         body.AddForce(force, ForceMode2D.Impulse);
         
         bombIsActive = false;
