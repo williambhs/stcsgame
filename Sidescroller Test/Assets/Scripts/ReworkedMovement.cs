@@ -9,6 +9,8 @@ public class ReworkedMovement : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
+    [SerializeField] private float impulseX = 5;
+    [SerializeField] private float impulseY = 0;
     public Rigidbody2D body;
     private Animator anim;
     private bool grounded;
@@ -23,6 +25,7 @@ public class ReworkedMovement : MonoBehaviour
     //checks how much longer until player can slide again
     private float slideReadyTimeRemaining = 0;
     private bool isSliding;
+    bool isMovingDueToExplosion = false;
     [SerializeField] private float slidePower;
 
     private void Awake()
@@ -46,8 +49,22 @@ public class ReworkedMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // If we're no longer moving (for whatever reason), clear the isMovingDueToExplosion flag.
+        if (body.velocity == Vector2.zero ||
+            (grounded && !isSliding))
+        {
+            isMovingDueToExplosion = false;
+        }
+
         float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+
+        // Only allow the horizontal input to influence the velocity if we're not moving due
+        // to the explosion.
+        if (!isMovingDueToExplosion)
+        {
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        }
+
         /*if (horizontalInput != 0)
         {
             if (hinderance == true)
@@ -59,7 +76,7 @@ public class ReworkedMovement : MonoBehaviour
                 body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
             } 
         }*/
-        
+
         //flip player when moving in respective direction
         if (horizontalInput > 0.01f)
         {
@@ -78,6 +95,16 @@ public class ReworkedMovement : MonoBehaviour
             isSliding = false;
             slideReady = true;
             Jump();
+        }
+
+        if (Input.GetKey(KeyCode.B))
+        {
+            Vector2 force = new Vector2(impulseX * transform.localScale.x, impulseY);
+
+            body.AddForce(force, ForceMode2D.Impulse);
+
+            // Keep track of the fact that we're moving due to an explosion.
+            isMovingDueToExplosion = true;
         }
 
         //Set animator parameters
@@ -147,7 +174,7 @@ public class ReworkedMovement : MonoBehaviour
         /*hinderance = true;
         hinderanceTimeRemaining = 1.25f;*/
 
-        if (!bombIsActive)
+        if (false && !bombIsActive)
         {
             // If there was a bomb in the scene, it is no longer active. So remove it before
             // creating a new instance.
@@ -213,10 +240,13 @@ public class ReworkedMovement : MonoBehaviour
         //body.velocity += powers;
 
         Vector2 force = explosion.GetAppliedForce(transform.position);
-
+        force.y = 0;
         body.AddForce(force, ForceMode2D.Impulse);
         
         bombIsActive = false;
+
+        // Keep track of the fact that we're moving due to an explosion.
+        isMovingDueToExplosion = true;
     }
 
     
