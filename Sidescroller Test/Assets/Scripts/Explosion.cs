@@ -13,7 +13,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float explosionPower = 30;
     [SerializeField] private float explosionRadius = 10;
     [SerializeField] private float maxDistance;
-    private float timeRemaining = 4;
+    private float timeRemaining = 3;
     private bool timerIsRunning = false;
     private Text countdownLabel;
 
@@ -122,8 +122,10 @@ public class Explosion : MonoBehaviour
         float falloff = 1 - (distance / explosionRadius);
 
         float force = falloff * explosionPower;
+        float forceY = falloff * (explosionPower / 2);
 
-        return (force * direction);
+        return force * direction;
     }
 
 }
+ 
