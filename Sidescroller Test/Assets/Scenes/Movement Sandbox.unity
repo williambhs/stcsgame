@@ -473,6 +473,7 @@ GameObject:
   - component: {fileID: 451058062}
   - component: {fileID: 451058061}
   - component: {fileID: 451058066}
+  - component: {fileID: 451058067}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -487,7 +488,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451058060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86398a1bf8dc5c842905ceaba6afce7c, type: 3}
   m_Name: 
@@ -496,6 +497,8 @@ MonoBehaviour:
   speed: 6
   jumpPower: 6
   maxCount: 250
+  impulseX: 5
+  impulseY: 0
   body: {fileID: 0}
   slidePower: 1
 --- !u!212 &451058062
@@ -629,6 +632,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &451058067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451058060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf139bac9f8d3241ac722da2ab9c5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 5818770539872375815, guid: 8e5b688f771eb1844bef143b31c57391, type: 3}
+  speed: 6
+  jumpPower: 6
+  impulseX: 0.25
+  impulseY: 0.25
+  slideDamper: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
