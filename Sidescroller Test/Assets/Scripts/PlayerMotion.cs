@@ -142,7 +142,7 @@ public class PlayerMotion : MonoBehaviour
 
     private void Debug_Impulse()
     {
-        Vector2 force = new Vector2(impulseX * transform.localScale.x, impulseY);
+        Vector2 force = new Vector2(impulseX * GetPlayerDirection(), impulseY);
 
         body.AddForce(force, ForceMode2D.Impulse);
 
@@ -160,13 +160,13 @@ public class PlayerMotion : MonoBehaviour
             }
 
             bombInstance = Instantiate(bombPrefab);
-            bombInstance.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
+            bombInstance.transform.position = new Vector3(transform.position.x + (0.5f * GetPlayerDirection()), transform.position.y, transform.position.z);
             
             var explosion = bombInstance.GetComponent<Explosion>();
 
             // here should be where bomb gets force applied to be thrown in direction player is looking
             var bombRigidBody = bombInstance.GetComponent<Rigidbody2D>();
-            bombRigidBody.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
+            bombRigidBody.AddForce(new Vector2(5 * GetPlayerDirection(), 3), ForceMode2D.Impulse);
 
             explosion.Exploded += OnBombExploded;
 
@@ -238,6 +238,10 @@ public class PlayerMotion : MonoBehaviour
         isMovingDueToExplosion = true;
     }
 
+    private float GetPlayerDirection()
+    {
+        return transform.localScale.x;
+    }
 
     private enum PlayerState
     {
