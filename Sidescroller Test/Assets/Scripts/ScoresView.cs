@@ -28,18 +28,29 @@ public class ScoresView : MonoBehaviour
         
     }
 
+    public void SetOwner(IGameObjectOwner owner)
+    {
+        this.owner = owner;
+    }
+
     private void OnCloseButtonClick()
     {
         Destroy(this.gameObject);
+
+        if (owner != null)
+        {
+            owner.GameObjectDestroyed(this.gameObject);
+            owner = null;
+        }
     }
 
     private void LoadScores()
     {
-        HighScoreManager.ClearScores();
+        //HighScoreManager.ClearScores();
 
-        HighScoreManager.AddScore("ANT", 5000);
-        HighScoreManager.AddScore("DBOT", 1000);
-        HighScoreManager.AddScore("TBIZ", 7000);
+        //HighScoreManager.AddScore("ANT", 5000);
+        //HighScoreManager.AddScore("DBOT", 1000);
+        //HighScoreManager.AddScore("TBIZ", 7000);
 
         var scoresList = HighScoreManager.GetScores();
 
@@ -59,4 +70,5 @@ public class ScoresView : MonoBehaviour
 
     private Button closeButton;
     private GameObject scoresPanel;
+    private IGameObjectOwner owner;
 }

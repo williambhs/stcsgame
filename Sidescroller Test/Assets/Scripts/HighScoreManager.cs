@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -98,8 +99,32 @@ public class HighScoreManager
         PlayerPrefs.SetString(c_highScoresKey, scoresJson);
     }
 
+    internal static uint GetPendingHighScore()
+    {
+        return pendingHighScore;
+    }
+
+    internal static void SetPendingHighScore(uint score)
+    {
+        pendingHighScore = score;
+    }
+
+    internal static void ClearPendingHighScore()
+    {
+        pendingHighScore = 0;
+    }
+
+    internal static string GetScoreFormattedString(uint score)
+    {
+        TimeSpan timeSpan = TimeSpan.FromMilliseconds(score);
+
+        return $"{timeSpan.Minutes.ToString("d2")}:{timeSpan.Seconds.ToString("d2")}:{timeSpan.Milliseconds.ToString("d3")}";
+    }
+
     private const int c_maxScores = 5;
     private const string c_highScoresKey = "HighScores";
+
+    private static uint pendingHighScore = 0;
 }
 
 public struct PlayerScore

@@ -42,7 +42,6 @@ public class PlayerMotion : MonoBehaviour
         UpdatePlayerState();
     }
 
-
     private void UpdatePlayerState()
     {
         // If we're no longer moving (for whatever reason), clear the isMovingDueToExplosion flag.

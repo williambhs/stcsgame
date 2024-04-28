@@ -18,7 +18,7 @@ public class ScoreItem : MonoBehaviour
         var scoreLabel = scoreGameObject.GetComponent<TextMeshProUGUI>();
 
         nameLabel.text = playerScore.name;
-        scoreLabel.text = playerScore.score.ToString();
+        scoreLabel.text = HighScoreManager.GetScoreFormattedString(playerScore.score);
     }
 
     // Update is called once per frame
