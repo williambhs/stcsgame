@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CommonScene : MonoBehaviour, IGameObjectOwner
 {
@@ -12,7 +13,10 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Set ourself as the instance that will be used when static 
+        // functions are called.
+        instance = this;
+        debugLabel = GameObject.Find("DebugLabel").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -66,5 +70,13 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
         overlayIsVisible = false;
     }
 
+    public static void PrintDebugText(string text)
+    {
+        instance.debugLabel.text = text;
+    }
+
     private bool overlayIsVisible = false;
+    private Text debugLabel;
+
+    private static CommonScene instance;
 }

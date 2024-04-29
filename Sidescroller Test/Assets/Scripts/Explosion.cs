@@ -22,7 +22,7 @@ public class Explosion : MonoBehaviour
     {
         timerIsRunning = true;
         GetComponent<SpriteRenderer>().color = Color.green;
-        countdownLabel = FindObjectOfType<Text>();
+        countdownLabel = GameObject.Find("CountdownLabel").GetComponent<Text>();
 
         UpdateCountdownLabel(timeRemaining);
     }

@@ -2,22 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class PlayerMotion : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private GameObject bombPrefab;
+    [SerializeField] private GameObject sideSensor;
+    [SerializeField] private GameObject bottomSensor;
+
     [SerializeField] private float speed = 6;
     [SerializeField] private float jumpPower = 6;
+    [SerializeField] private LayerMask obstacleLayer;
 
     [Header("Debug Stuff")]
     [SerializeField] private float impulseX = 0.25f;
     [SerializeField] private float impulseY = 0.25f;
     [SerializeField] private float slideDamper = 1.0f;
+    [SerializeField] private float wallJumpXVelocity = 10.0f;
 
     private Rigidbody2D body;
     private Animator animator;
     private GameObject bombInstance;
-    private bool grounded;
+    private bool isTouchingGround;
+    private bool isTouchingWall;
+    private bool isWallSliding;
     private bool isMovingDueToExplosion = false;
     private PlayerState playerState;
     private Countdown bombCooldown;
@@ -39,6 +47,11 @@ public class PlayerMotion : MonoBehaviour
         // possible actions they can take.
         bombCooldown.Elapse(Time.deltaTime);
 
+        UpdateIsTouchingGround();
+        UpdateIsTouchingWall();
+        UpdateIsWallSliding();
+
+        CommonScene.PrintDebugText($"Ground: {isTouchingGround} - Wall: {isTouchingWall} - Wall S: {isWallSliding} - Jumping Up: {(playerState == PlayerState.JumpingUp)}");
         UpdatePlayerState();
     }
 
@@ -70,12 +83,12 @@ public class PlayerMotion : MonoBehaviour
         {
             Jump();
         }
-        
+
         if (Input.GetKey(KeyCode.X))
-        {     
+        {
             PlantBomb();
         }
-        
+
         if (Input.GetKey(KeyCode.I))
         {
             Debug_Impulse();
@@ -87,9 +100,9 @@ public class PlayerMotion : MonoBehaviour
         }
 
         //Set animator parameters
-        animator.SetBool("grounded", grounded);
+        animator.SetBool("grounded", isTouchingGround);
 
-        CommonScene.PrintDebugText("Current State: " + playerState.ToString() + "  -  Grounded: " + grounded);
+        //CommonScene.PrintDebugText("Current State: " + playerState.ToString() + "  -  Grounded: " + isTouchingGround);
     }
 
 
@@ -101,17 +114,17 @@ public class PlayerMotion : MonoBehaviour
             playerState != PlayerState.Sliding)
         {
             TryTransitionToState(PlayerState.Running);
-            
+
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
             // Flip player when moving in respective direction
             if (horizontalInput > 0.01f)
             {
-                transform.localScale = Vector3.one;
+                SetPlayerDirection(1);
             }
             else if (horizontalInput < -0.01f)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                SetPlayerDirection(-1);
             }
 
             animator.SetBool("run", true);
@@ -124,13 +137,13 @@ public class PlayerMotion : MonoBehaviour
 
     private bool TryTransitionToIdle()
     {
-        if (playerState != PlayerState.Sliding && 
-            grounded)
+        if (playerState != PlayerState.Sliding &&
+            isTouchingGround)
         {
             TryTransitionToState(PlayerState.Idle);
 
             animator.SetBool("run", false);
-            
+
             body.velocity = Vector2.zero;
 
             return true;
@@ -160,7 +173,7 @@ public class PlayerMotion : MonoBehaviour
 
             bombInstance = Instantiate(bombPrefab);
             bombInstance.transform.position = new Vector3(transform.position.x + (0.5f * GetPlayerDirection()), transform.position.y, transform.position.z);
-            
+
             var explosion = bombInstance.GetComponent<Explosion>();
 
             // here should be where bomb gets force applied to be thrown in direction player is looking
@@ -183,11 +196,27 @@ public class PlayerMotion : MonoBehaviour
 
     private void Jump()
     {
-        if (grounded && TryTransitionToState(PlayerState.JumpingUp))
+        if ((isTouchingGround || isTouchingWall) && 
+            TryTransitionToState(PlayerState.JumpingUp))
         {
-            body.velocity = new Vector2(body.velocity.x, jumpPower);
+            isTouchingGround = false;
+
+            float jumpXVelocity;
+
+            if (isTouchingWall)
+            {
+                // -1 will make us jump away from the wall.
+                jumpXVelocity = -1 * 5 * GetPlayerDirection();
+
+                FlipPlayerDirection();
+            }
+            else
+            {
+                jumpXVelocity = body.velocity.x;
+            }
+
+            body.velocity = new Vector2(jumpXVelocity, jumpPower);
             animator.SetTrigger("jump");
-            grounded = false;
         }
     }
 
@@ -198,7 +227,7 @@ public class PlayerMotion : MonoBehaviour
             animator.SetBool("sliding", true);
 
             // If we're sliding while on the ground, apply a little friction on the x axis.
-            if (grounded)
+            if (isTouchingGround)
             {
                 body.velocity = new Vector2(body.velocity.x * slideDamper, body.velocity.y);
 
@@ -209,18 +238,11 @@ public class PlayerMotion : MonoBehaviour
 
     private void ClearSlideState()
     {
-        playerState = PlayerState.Unknown;
-
-        animator.SetBool("sliding", false);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
+        if (playerState == PlayerState.Sliding)
         {
-            grounded = true;
+            TryTransitionToState(PlayerState.Unknown);
 
-            UpdatePlayerState();
+            animator.SetBool("sliding", false);
         }
     }
 
@@ -237,9 +259,44 @@ public class PlayerMotion : MonoBehaviour
         isMovingDueToExplosion = true;
     }
 
-    private float GetPlayerDirection()
+    private int GetPlayerDirection()
     {
-        return transform.localScale.x;
+        return (int)transform.localScale.x;
+    }
+
+    private void SetPlayerDirection(int direction)
+    {
+        var scale = transform.localScale;
+        scale.x = direction;
+
+        transform.localScale = scale;
+    }
+
+    private void FlipPlayerDirection()
+    {
+        SetPlayerDirection(GetPlayerDirection() * -1);
+    }
+
+    private void UpdateIsTouchingGround()
+    {
+        isTouchingGround = Physics2D.OverlapCircle(bottomSensor.transform.position, 0.1f, obstacleLayer);
+    }
+
+    private void UpdateIsTouchingWall()
+    {
+        isTouchingWall = Physics2D.OverlapCircle(sideSensor.transform.position, 0.1f, obstacleLayer);
+    }
+
+    private void UpdateIsWallSliding()
+    {
+        if (isTouchingWall && body.velocity.y < 0)
+        {
+            isWallSliding = true;
+        }
+        else
+        {
+            isWallSliding = false;
+        }
     }
 
     private enum PlayerState
@@ -253,38 +310,4 @@ public class PlayerMotion : MonoBehaviour
 
         Count,
     }
-}
-
-struct Countdown
-{
-    public float RemainingTime
-    {
-        get
-        {
-            return remainingTime;
-        }
-    }
-
-    public bool HasExpired()
-    {
-        return remainingTime <= 0;
-    }
-
-    public void Reset(float seconds)
-    {
-        remainingTime = seconds;
-    }
-
-    public void Elapse(float elapsedSeconds)
-    {
-        remainingTime -= elapsedSeconds;
-
-        // Clamp to 0
-        if (remainingTime < 0)
-        {
-            remainingTime = 0;
-        }
-    }
-
-    private float remainingTime;
 }

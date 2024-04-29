@@ -7,11 +7,15 @@ TagManager:
   - Win
   - Speedup
   - Ground
+  - Ladder
+  - Enemy
+  - Coin
+  - Platform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstacle
   - Water
   - UI
   - Ground
