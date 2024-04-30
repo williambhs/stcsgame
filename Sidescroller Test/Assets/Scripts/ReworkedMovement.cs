@@ -29,7 +29,7 @@ public class ReworkedMovement : MonoBehaviour
     private float slideReadyTimeRemaining = 0;
     private bool isSliding;
     float count;
-    bool isMovingDueToExplosion = false;
+    bool isMovingDueToExternalForce = false;
     [SerializeField] private float slidePower;
 
     private void Awake()
@@ -53,11 +53,10 @@ public class ReworkedMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // If we're no longer moving (for whatever reason), clear the isMovingDueToExplosion flag.
-        if (body.velocity == Vector2.zero ||
-            (grounded && !isSliding))
+        // If we're no longer moving (for whatever reason), clear the isMovingDueToExternalForce flag.
+        if (body.velocity == Vector2.zero && (grounded && !isSliding))
         {
-            isMovingDueToExplosion = false;
+            isMovingDueToExternalForce = false;
         }
 
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -70,7 +69,7 @@ public class ReworkedMovement : MonoBehaviour
 
         // Only allow the horizontal input to influence the velocity if we're not moving due
         // to the explosion.
-        if (!isMovingDueToExplosion)
+        if (!isMovingDueToExternalForce)
         {
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
         }
@@ -116,7 +115,7 @@ public class ReworkedMovement : MonoBehaviour
             body.AddForce(force, ForceMode2D.Impulse);
 
             // Keep track of the fact that we're moving due to an explosion.
-            isMovingDueToExplosion = true;
+            isMovingDueToExternalForce = true;
         }
 
         //Set animator parameters
@@ -124,13 +123,17 @@ public class ReworkedMovement : MonoBehaviour
         anim.SetBool("grounded", grounded);
 
         //checking to see if c is pressed so player can slide;
-        if (Input.GetKey(KeyCode.C) && slideReady == true)
+        if (Input.GetKey(KeyCode.C))
         {
-            slideReady = false;
             isSliding = true;
             Slide();
         }
-        
+        else
+        {
+            anim.SetBool("sliding", false);
+            isSliding = false;
+        }
+
         if (Input.GetKey(KeyCode.X) && bombIsReady == true)
         {
              //if (!bombIsActive)
@@ -157,37 +160,6 @@ public class ReworkedMovement : MonoBehaviour
                 bombRigidBody.AddForce(new Vector2(5, 3), ForceMode2D.Impulse);
 
                 //bombIsActive = true;
-            }
-        }
-        //checking if the player is sliding for animation 
-        if (isSliding == true)
-        {
-            if (slideTimeRemaining > 0)
-            {
-                slideTimeRemaining -= Time.deltaTime;
-            }
-
-            else
-            {
-                slideTimeRemaining = 0;
-                isSliding = false;
-                slideReady = false;
-                slideReadyTimeRemaining = 2;
-                anim.SetBool("sliding", false);
-            }
-        }
-        //checking if player can slide again
-        if (slideReady == false)
-        {
-            if (slideReadyTimeRemaining > 0)
-            {
-                slideReadyTimeRemaining -= Time.deltaTime;
-            }
-            else
-            {
-                slideReadyTimeRemaining = 0;
-                slideReady = true;
-      
             }
         }
 
@@ -243,20 +215,26 @@ public class ReworkedMovement : MonoBehaviour
     private void Slide()
     {
         anim.SetBool("sliding", true);
-        if (slidePower == 1)
+        //this slows down the player while they're sliding until they eventually stop
+        /*if (player is sliding down a ramp)
         {
-            Vector2 slideForce = new Vector2(body.velocity.x + 10, 0);
-            body.AddForce(slideForce, ForceMode2D.Impulse);
-                
-        }
 
-        else
+        }
+        else if (player is sliding up a ramp)
         {
-            body.velocity += new Vector2(body.velocity.x * 8, 0);
-        }
 
-        isSliding = true;
-        slideTimeRemaining = 0.5f;
+        }
+        else*/
+        {
+            if (body.velocity.x > 0.01f)
+            {
+                body.velocity = new Vector2(body.velocity.x * 0.99f, body.velocity.y);
+            }
+            else
+            {
+                body.velocity = new Vector2(0, body.velocity.y);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -288,7 +266,7 @@ public class ReworkedMovement : MonoBehaviour
         bombIsActive = false;
 
         // Keep track of the fact that we're moving due to an explosion.
-        isMovingDueToExplosion = true;
+        isMovingDueToExternalForce = true;
     }
 
     
