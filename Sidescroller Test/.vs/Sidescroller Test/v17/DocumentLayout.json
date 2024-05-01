@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\scripts\\reworkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\reworkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Movement.cs",
-              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Movement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Movement.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Movement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Movement.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAQwBEAAAAuAAAA",
+              "Title": "ReworkedMovement.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\ReworkedMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ReworkedMovement.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\ReworkedMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ReworkedMovement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T20:07:36.3Z",
+              "WhenOpened": "2024-04-21T01:36:15.537Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Explosion.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Explosion.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Explosion.cs",
+              "ViewState": "AQIAAFoAAAAAAOjSBJ8hwHsAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-21T01:36:05.388Z"
             }
           ]
         }
