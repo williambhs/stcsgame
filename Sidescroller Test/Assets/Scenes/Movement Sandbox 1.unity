@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 335459348}
   - component: {fileID: 335459347}
   - component: {fileID: 335459346}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335459342}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1452,15 +1452,18 @@ MonoBehaviour:
   bombPrefab: {fileID: 5818770539872375815, guid: 8e5b688f771eb1844bef143b31c57391, type: 3}
   sideSensor: {fileID: 1261730912}
   bottomSensor: {fileID: 51218175}
-  speed: 6
-  jumpPower: 6
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
+  sideSensorSize: {x: 0.2, y: 0.4}
+  bottomSensorSize: {x: 0.3, y: 0.3}
+  speed: 6
+  jumpPower: 6
+  slideDamper: 1
+  wallJumpXVelocity: 5
+  wallJumpingDuration: 0.2
   impulseX: 0.25
   impulseY: 0.25
-  slideDamper: 1
-  wallJumpXVelocity: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,7 +1614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534147666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -4.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 335459343}
@@ -2184,13 +2187,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990437338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.29, y: 0.65, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.33021104, w: 0.94390714}
+  m_LocalPosition: {x: -15.31, y: -0.060000684, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -38.563}
 --- !u!1 &1999674362
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,16 +9,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject bombPrefab;
     [SerializeField] private GameObject sideSensor;
     [SerializeField] private GameObject bottomSensor;
+    [SerializeField] private LayerMask obstacleLayer;
+
+    [SerializeField] private Vector2 sideSensorSize = new Vector2(0.2f, 0.4f);
+    [SerializeField] private Vector2 bottomSensorSize = new Vector2(0.3f, 0.3f);
 
     [SerializeField] private float speed = 6;
     [SerializeField] private float jumpPower = 6;
-    [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private float slideDamper = 1.0f;
+    [SerializeField] private float wallJumpXVelocity = 3.0f;
+    // User is frozen from influencing x movement during this time.
+    [SerializeField] private float wallJumpingDuration = 0.2f;
+
 
     [Header("Debug Stuff")]
     [SerializeField] private float impulseX = 0.25f;
     [SerializeField] private float impulseY = 0.25f;
-    [SerializeField] private float slideDamper = 1.0f;
-    [SerializeField] private float wallJumpXVelocity = 3.0f;
 
     private Rigidbody2D body;
     private Animator animator;
@@ -34,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
-    private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(8f, 16f);
     private bool userIsCampingOnJumpButton = false;
     private float horizontalInput;
@@ -192,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckRunning()
     {
-        if (isTouchingGround && body.velocity.x != 0)
+        if (isTouchingGround && body.velocity.x != 0 && horizontalInput != 0)
         {
             // We only update the player state and animation here. The position is
             // updated during FixedUpdate.
@@ -210,8 +215,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerState != PlayerState.Sliding &&
             isTouchingGround &&
-            body.velocity == Vector2.zero)
+            ((horizontalInput == 0) ||
+             (horizontalInput != 0 && body.velocity.x == 0)))
         {
+
+            //((horizontalInput == 0) ||
+            // (horizontalInput != 0 && body.velocity.x == 0)))
+
+            //horizontalInput == 0)
+
             SetPlayerState(PlayerState.Idle);
 
             animator.SetBool("run", false);
@@ -329,12 +341,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateIsTouchingGround()
     {
-        isTouchingGround = Physics2D.OverlapCircle(bottomSensor.transform.position, 0.1f, obstacleLayer);
+        isTouchingGround = Physics2D.OverlapBox(bottomSensor.transform.position, bottomSensorSize, 0, obstacleLayer);
     }
 
     private void UpdateIsTouchingWall()
     {
-        isTouchingWall = Physics2D.OverlapCircle(sideSensor.transform.position, 0.1f, obstacleLayer);
+        isTouchingWall = Physics2D.OverlapBox(sideSensor.transform.position, sideSensorSize, 0, obstacleLayer);
     }
 
     private void UpdateIsWallSliding()
@@ -343,7 +355,7 @@ public class PlayerMovement : MonoBehaviour
             !isTouchingGround && 
             horizontalInput != 0)
         {
-            isWallSliding = true;
+             isWallSliding = true;
 
             // Maybe slow down y velocity here.
         }
