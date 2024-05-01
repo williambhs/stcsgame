@@ -180,10 +180,12 @@ public class PlayerMovement : MonoBehaviour
             jumping = true;
         }
 
-        //if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        //{
-        //    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        //}
+        // If the jump key was also lifted this frame, then this was a light tap,
+        // so dampen the jump power.
+        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0f)
+        {
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.5f);
+        }
 
         return jumping;
     }
