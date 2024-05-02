@@ -107,6 +107,39 @@ public class PlayerMovement : MonoBehaviour
         CommonScene.PrintDebugText($"Player State: {playerState}\t - Grounded: {isTouchingGround}");
     }
 
+    private void FixedUpdate()
+    {
+        var expired = playerLockedDueToWallJumpCountdown.HasExpired();
+
+        if (expired)
+        {
+            float velocityX;
+
+            if ((isTouchingGround || horizontalInput != 0) &&
+                playerState != PlayerState.Sliding)
+            {
+                velocityX = horizontalInput * speed;
+            }
+            else
+            {
+                velocityX = body.velocity.x;
+                horizontalInput = 0;
+            }
+
+            SetPlayerVelocity(new Vector2(velocityX, body.velocity.y));
+
+            // Flip player when moving in respective direction
+            if (horizontalInput > 0.01f)
+            {
+                SetPlayerDirection(1);
+            }
+            else if (horizontalInput < -0.01f)
+            {
+                SetPlayerDirection(-1);
+            }
+        }
+    }
+
     private bool CheckSliding()
     {
         if (Input.GetKey(KeyCode.C))
@@ -236,38 +269,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         return false;
-    }
-
-
-    private void FixedUpdate()
-    {
-        var expired = playerLockedDueToWallJumpCountdown.HasExpired();
-
-        if (expired)
-        {
-            float velocityX;
-
-            if (isTouchingGround || horizontalInput != 0)
-            {
-                velocityX = horizontalInput * speed;
-            }
-            else
-            {
-                velocityX = body.velocity.x;
-            }
-
-            SetPlayerVelocity(new Vector2(velocityX, body.velocity.y));
-
-            // Flip player when moving in respective direction
-            if (horizontalInput > 0.01f)
-            {
-                SetPlayerDirection(1);
-            }
-            else if (horizontalInput < -0.01f)
-            {
-                SetPlayerDirection(-1);
-            }
-        }
     }
 
     private void Debug_Impulse()
