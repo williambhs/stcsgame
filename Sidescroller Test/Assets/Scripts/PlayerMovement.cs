@@ -104,7 +104,8 @@ public class PlayerMovement : MonoBehaviour
         // We need to check both isTouchingGround AND y velocity is not going upwards. 
         animator.SetBool("grounded", isTouchingGround && body.velocity.y <= 0);
 
-        CommonScene.PrintDebugText($"Player State: {playerState}\t - Grounded: {isTouchingGround}");
+        //CommonScene.PrintDebugText($"On Slope: {IsOnSlope()}");
+        //CommonScene.PrintDebugText($"Player State: {playerState}\t - Grounded: {isTouchingGround}");
     }
 
     private void FixedUpdate()
@@ -376,6 +377,20 @@ public class PlayerMovement : MonoBehaviour
         {
             isWallSliding = false;
         }
+    }
+
+    private bool IsOnSlope()
+    {
+        float maxSlopeAngle = 50;
+        var slopeHit = Physics2D.Raycast(bottomSensor.transform.position, Vector2.down, bottomSensorSize.y, obstacleLayer);
+
+        if (slopeHit)
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+
+        return false;
     }
 
     private void SetPlayerVelocity(Vector2 velocity)
