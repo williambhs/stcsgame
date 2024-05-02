@@ -22,7 +22,7 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.E))
         {
             Debug_AddHighScore();
         }
