@@ -1459,8 +1459,9 @@ MonoBehaviour:
   bottomSensorSize: {x: 0.3, y: 0.3}
   speed: 6
   jumpPower: 6
-  slideDamper: 1
-  wallJumpXVelocity: 5
+  groundSlideDamper: 1
+  wallSlideDamper: 1
+  wallJumpingPower: {x: 5, y: 5}
   wallJumpingDuration: 0.2
   impulseX: 0.25
   impulseY: 0.25
@@ -1532,7 +1533,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.013255
+  orthographic size: 11.16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

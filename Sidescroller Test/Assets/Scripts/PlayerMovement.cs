@@ -14,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector2 sideSensorSize = new Vector2(0.2f, 0.4f);
     [SerializeField] private Vector2 bottomSensorSize = new Vector2(0.3f, 0.3f);
 
+    [Header("Motion Stuff")]
     [SerializeField] private float speed = 6;
-    [SerializeField] private float jumpPower = 6;
-    [SerializeField] private float slideDamper = 1.0f;
-    [SerializeField] private float wallJumpXVelocity = 3.0f;
+    [SerializeField] private float jumpPower = 6; 
+    [SerializeField] private float groundSlideDamper = 1.0f;
+    [SerializeField] private float wallSlideDamper = 1.0f;
+    [SerializeField] private Vector2 wallJumpingPower = new Vector2(5f, 5f);
     // User is frozen from influencing x movement during this time.
-    [SerializeField] private float wallJumpingDuration = 0.2f;
+    [SerializeField] private float wallJumpingDuration = 0.5f;
 
 
     [Header("Debug Stuff")]
@@ -32,16 +34,13 @@ public class PlayerMovement : MonoBehaviour
     private bool isTouchingGround;
     private bool isTouchingWall;
     private bool isWallSliding;
-    private bool isWallJumping;
     private bool isMovingDueToExplosion = false;
     private PlayerState playerState;
     private Countdown bombCooldown;
     private Countdown canWallJumpCountdown;
+    private Countdown playerLockedDueToWallJumpCountdown;
 
     private float wallJumpingTime = 0.2f;
-    private float wallJumpingCounter;
-    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
-    private bool userIsCampingOnJumpButton = false;
     private float horizontalInput;
 
     // Start is called before the first frame update
@@ -56,11 +55,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-
         // First, update any timers, since this could affect the player state and
         // possible actions they can take.
         bombCooldown.Elapse(Time.deltaTime);
+        playerLockedDueToWallJumpCountdown.Elapse(Time.deltaTime);
+
+        // Only use the horzontal input if the player isn't locked due to
+        // recently starting a wall jump.
+        if (playerLockedDueToWallJumpCountdown.HasExpired())
+        {
+            horizontalInput = Input.GetAxis("Horizontal");
+        }
+        else
+        {
+            horizontalInput = 0;
+        }
 
         UpdateIsTouchingGround();
         UpdateIsTouchingWall();
@@ -109,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             // If we're sliding while on the ground, apply a little friction on the x axis.
             if (isTouchingGround)
             {
-                body.velocity = new Vector2(body.velocity.x * slideDamper, body.velocity.y);
+                SetPlayerVelocity(new Vector2(body.velocity.x * groundSlideDamper, body.velocity.y));
 
                 //Debug.Log("Sliding Velocity: " + body.velocity.x);
             }
@@ -132,9 +141,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isWallSliding)
         {
-            isWallJumping = false;
+            playerLockedDueToWallJumpCountdown.Stop();
+
             canWallJumpCountdown.Reset(wallJumpingTime);
-            CancelInvoke(nameof(ClearIsWallJumping));
         }
         else
         {
@@ -146,20 +155,21 @@ public class PlayerMovement : MonoBehaviour
         {
             SetPlayerState(PlayerState.JumpingUp);
 
-            isWallJumping = true;
+            playerLockedDueToWallJumpCountdown.Reset(wallJumpingDuration);
 
             canWallJumpCountdown.Stop();
 
             // -1 will make us jump away from the wall.
-            float jumpXVelocity = -1 * wallJumpXVelocity * GetPlayerDirection();
+            float jumpXVelocity = -1 * wallJumpingPower.x * GetPlayerDirection();
 
-            body.velocity = new Vector2(jumpXVelocity, jumpPower);
+            SetPlayerVelocity(new Vector2(jumpXVelocity, wallJumpingPower.y));
 
             FlipPlayerDirection();
 
-            animator.SetTrigger("jump");
+            // Clear the horizontal input so that it doesn't interrupt the initial wall jumping.
+            horizontalInput = 0;
 
-            Invoke(nameof(ClearIsWallJumping), wallJumpingDuration);
+            animator.SetTrigger("jump");
 
             return true;
         }
@@ -178,18 +188,18 @@ public class PlayerMovement : MonoBehaviour
         
             isTouchingGround = false;
 
-            body.velocity = new Vector2(body.velocity.x, jumpPower);
+            SetPlayerVelocity(new Vector2(body.velocity.x, jumpPower));
 
             animator.SetTrigger("jump");
 
-            jumping = true;
-        }
+            // If the jump key was also lifted this frame, then this was a light tap,
+            // so dampen the jump power.
+            if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0f)
+            {
+                SetPlayerVelocity(new Vector2(body.velocity.x, body.velocity.y * 0.5f));
+            }
 
-        // If the jump key was also lifted this frame, then this was a light tap,
-        // so dampen the jump power.
-        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0f)
-        {
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.5f);
+            jumping = true;
         }
 
         return jumping;
@@ -218,12 +228,6 @@ public class PlayerMovement : MonoBehaviour
             ((horizontalInput == 0) ||
              (horizontalInput != 0 && body.velocity.x == 0)))
         {
-
-            //((horizontalInput == 0) ||
-            // (horizontalInput != 0 && body.velocity.x == 0)))
-
-            //horizontalInput == 0)
-
             SetPlayerState(PlayerState.Idle);
 
             animator.SetBool("run", false);
@@ -237,9 +241,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isWallJumping)
+        var expired = playerLockedDueToWallJumpCountdown.HasExpired();
+
+        if (expired)
         {
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+            float velocityX;
+
+            if (isTouchingGround || horizontalInput != 0)
+            {
+                velocityX = horizontalInput * speed;
+            }
+            else
+            {
+                velocityX = body.velocity.x;
+            }
+
+            SetPlayerVelocity(new Vector2(velocityX, body.velocity.y));
 
             // Flip player when moving in respective direction
             if (horizontalInput > 0.01f)
@@ -303,11 +320,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ClearIsWallJumping()
-    {
-        isWallJumping = false;
-    }
-
     private void OnBombExploded(Explosion explosion)
     {
         // Disconnect from the Exploded event. It only fires once. This prevents memory leaks.
@@ -363,6 +375,11 @@ public class PlayerMovement : MonoBehaviour
         {
             isWallSliding = false;
         }
+    }
+
+    private void SetPlayerVelocity(Vector2 velocity)
+    {
+        body.velocity = velocity;
     }
 
     private enum PlayerState
