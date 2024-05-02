@@ -45,4 +45,6 @@ public class GameTimerScript : MonoBehaviour
     {
         return currentTime;
     }
+
+    
 }

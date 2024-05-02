@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\gamefinishcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\gamefinishcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +35,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "GameFinishCollider.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs",
+              "RelativeDocumentMoniker": "Assets\\GameFinishCollider.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs",
+              "RelativeToolTip": "Assets\\GameFinishCollider.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAACcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T04:45:15.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GameTimerScript.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameTimerScript.cs",
               "RelativeDocumentMoniker": "Assets\\GameTimerScript.cs",
               "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameTimerScript.cs",
               "RelativeToolTip": "Assets\\GameTimerScript.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAXAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAADAAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-01T03:01:37.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CommonScene.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\CommonScene.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CommonScene.cs",
@@ -55,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ReworkedMovement.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\ReworkedMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ReworkedMovement.cs",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Explosion.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Explosion.cs",
