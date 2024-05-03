@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,15 +15,15 @@
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\audio stuff\\audiocontrollermain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\textrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\textrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\textrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -50,21 +50,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TextRotation.cs",
-              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\TextRotation.cs",
-              "RelativeDocumentMoniker": "Assets\\TextRotation.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\TextRotation.cs",
-              "RelativeToolTip": "Assets\\TextRotation.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB4AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:50:30.036Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -75,8 +62,7 @@
               "RelativeToolTip": "Assets\\Audio Stuff\\AudioControllerMain.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T06:48:42.547Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T06:48:42.547Z"
             },
             {
               "$type": "Document",
@@ -88,8 +74,7 @@
               "RelativeToolTip": "Assets\\GameTimerScript.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAMwCkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T13:43:00.706Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T13:43:00.706Z"
             },
             {
               "$type": "Document",
@@ -101,8 +86,7 @@
               "RelativeToolTip": "Assets\\CameraFollow.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:09:01.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T12:09:01.286Z"
             },
             {
               "$type": "Document",
@@ -114,8 +98,7 @@
               "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAAACUBAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T06:46:53.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T06:46:53.677Z"
             },
             {
               "$type": "Document",
@@ -125,10 +108,22 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Explosion.cs",
               "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
               "RelativeToolTip": "Assets\\Scripts\\Explosion.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-21T01:36:05.388Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TextRotation.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\TextRotation.cs",
+              "RelativeDocumentMoniker": "Assets\\TextRotation.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\TextRotation.cs",
+              "RelativeToolTip": "Assets\\TextRotation.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T12:50:30.036Z"
             },
             {
               "$type": "Document",
@@ -152,8 +147,7 @@
               "RelativeToolTip": "Assets\\Scripts\\HighScoreEntry.cs",
               "ViewState": "AQIAABUAAAAAAAAAAADgvywAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T04:24:50.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T04:24:50.674Z"
             },
             {
               "$type": "Document",
