@@ -100,6 +100,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug_Impulse();
         }
+        else if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            HighScoreManager.ClearScores();
+        }
 
         // We need to check both isTouchingGround AND y velocity is not going upwards. 
         animator.SetBool("grounded", isTouchingGround && body.velocity.y <= 0);

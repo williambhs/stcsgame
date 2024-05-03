@@ -7,20 +7,28 @@
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scoresview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\scripts\\commonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\commonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\scripts\\highscoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\highscoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\gamefinishcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\gamefinishcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\scripts\\commonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\commonscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\scripts\\highscoreentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\highscoreentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\audio stuff\\audiocontrollermain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\audio stuff\\audiocontrollermain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\scripts\\highscoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\highscoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\scripts\\reworkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,68 +54,94 @@
               "Title": "ScoresView.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\ScoresView.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ScoresView.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\ScoresView.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ScoresView.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAMAAAA",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\ScoresView.cs*",
+              "RelativeToolTip": "Assets\\Scripts\\ScoresView.cs*",
+              "ViewState": "AQIAACEAAAAAAAAAAAAgwC8AAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-03T04:51:27.071Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HighScoreEntry.cs",
-              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\HighScoreEntry.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\HighScoreEntry.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\HighScoreEntry.cs",
-              "RelativeToolTip": "Assets\\Scripts\\HighScoreEntry.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAADgvykAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T04:24:50.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "HighScoreManager.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\HighScoreManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HighScoreManager.cs",
               "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\HighScoreManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\HighScoreManager.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAIA5wGwAAAAAAAAA",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAMwGwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-03T04:09:16.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GameFinishCollider.cs",
-              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs",
-              "RelativeDocumentMoniker": "Assets\\GameFinishCollider.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs",
-              "RelativeToolTip": "Assets\\GameFinishCollider.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T04:45:15.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CommonScene.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\CommonScene.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CommonScene.cs",
               "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\CommonScene.cs",
               "RelativeToolTip": "Assets\\Scripts\\CommonScene.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAiwCQAAAALAAAA",
+              "ViewState": "AQIAAEoAAAAAAAAAAAD4v1wAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-01T02:14:25.445Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameFinishCollider.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs",
+              "RelativeDocumentMoniker": "Assets\\GameFinishCollider.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs",
+              "RelativeToolTip": "Assets\\GameFinishCollider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T04:45:15.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HighScoreEntry.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\HighScoreEntry.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HighScoreEntry.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\HighScoreEntry.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HighScoreEntry.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAADgvy8AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T04:24:50.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAYwGgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T06:46:53.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AudioControllerMain.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Audio Stuff\\AudioControllerMain.cs",
+              "RelativeDocumentMoniker": "Assets\\Audio Stuff\\AudioControllerMain.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Audio Stuff\\AudioControllerMain.cs",
+              "RelativeToolTip": "Assets\\Audio Stuff\\AudioControllerMain.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T06:48:42.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ReworkedMovement.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\ReworkedMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ReworkedMovement.cs",
@@ -120,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Explosion.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Explosion.cs",

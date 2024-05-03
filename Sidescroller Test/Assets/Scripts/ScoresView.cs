@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoresView : MonoBehaviour
@@ -8,7 +9,7 @@ public class ScoresView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var buttonObject = GameObject.Find("CloseButton");
+        var buttonObject = GameObject.Find("CloseScoresButton");
 
         if (buttonObject != null)
         {
@@ -35,13 +36,16 @@ public class ScoresView : MonoBehaviour
 
     private void OnCloseButtonClick()
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
 
         if (owner != null)
         {
-            owner.GameObjectDestroyed(this.gameObject);
+            //owner.GameObjectDestroyed(this.gameObject);
             owner = null;
         }
+
+        // Load Main Menu from here.
+        SceneManager.LoadSceneAsync("StartScreen_Finished", LoadSceneMode.Single);
     }
 
     private void LoadScores()

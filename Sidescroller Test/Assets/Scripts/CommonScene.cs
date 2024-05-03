@@ -57,7 +57,7 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
 
     private void ShowHighScores()
     {
-        if (!overlayIsVisible)
+        //if (!overlayIsVisible)
         {
             overlayIsVisible = true;
 
