@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoresView : MonoBehaviour
 {
@@ -35,8 +36,9 @@ public class ScoresView : MonoBehaviour
 
     private void OnCloseButtonClick()
     {
-        Destroy(this.gameObject);
 
+        //Destroy(this.gameObject);
+        SceneManager.LoadScene("StartScreen_Finished");
         if (owner != null)
         {
             owner.GameObjectDestroyed(this.gameObject);

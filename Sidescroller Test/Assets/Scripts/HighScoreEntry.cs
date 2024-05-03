@@ -43,6 +43,7 @@ public class HighScoreEntry : MonoBehaviour
 
         //Destroy(this.gameObject); 
         
+
         if (owner != null)
         {
             owner.GameObjectDestroyed(this.gameObject);
