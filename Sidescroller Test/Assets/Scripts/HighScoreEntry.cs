@@ -41,7 +41,7 @@ public class HighScoreEntry : MonoBehaviour
 
         HighScoreManager.ClearPendingHighScore();
 
-        Destroy(this.gameObject); 
+        //Destroy(this.gameObject); 
         
         if (owner != null)
         {
