@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class AudioControllerMenu : MonoBehaviour
 {
-
-
     void Start()
     {
+        GameObject.FindGameObjectWithTag("EndMusic").GetComponent<Music>().StopMusic();
         GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<Music>().PlayMusic();
         GameObject.FindGameObjectWithTag("GameMusic").GetComponent<Music>().StopMusic();
     }
-
 }
