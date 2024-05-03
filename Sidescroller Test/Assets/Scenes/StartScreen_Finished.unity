@@ -360,7 +360,6 @@ GameObject:
   - component: {fileID: 153375405}
   - component: {fileID: 153375406}
   - component: {fileID: 153375407}
-  - component: {fileID: 153375408}
   m_Layer: 0
   m_Name: AudioContainer
   m_TagString: MenuMusic
@@ -516,18 +515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundPlayer: {fileID: 946609842}
---- !u!114 &153375408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153375402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f86496bafd343cfbdbbc8e5a1c91ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &343704297
 GameObject:
   m_ObjectHideFlags: 0

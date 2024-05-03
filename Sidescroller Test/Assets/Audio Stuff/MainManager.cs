@@ -17,14 +17,14 @@ public class MainManager : MonoBehaviour
     {
 
         // start of new code
-        
+
         if (Instance != null)
 
         {
 
             Destroy(gameObject);
 
-            if(!SceneManager.GetActiveScene().name=="StartScreen_FinishedFinished")return;
+            return;
 
         }
 
