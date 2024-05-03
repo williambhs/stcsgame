@@ -89,7 +89,7 @@ public class PlayerMotion : MonoBehaviour
         //Set animator parameters
         animator.SetBool("grounded", grounded);
 
-        CommonScene.PrintDebugText("Current State: " + playerState.ToString() + "  -  Grounded: " + grounded);
+        //CommonScene.PrintDebugText("Current State: " + playerState.ToString() + "  -  Grounded: " + grounded);
     }
 
 
