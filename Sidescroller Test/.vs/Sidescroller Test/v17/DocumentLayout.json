@@ -38,9 +38,9 @@
               "Title": "GameFinishCollider.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs",
               "RelativeDocumentMoniker": "Assets\\GameFinishCollider.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs",
-              "RelativeToolTip": "Assets\\GameFinishCollider.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAAAAAA",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameFinishCollider.cs*",
+              "RelativeToolTip": "Assets\\GameFinishCollider.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-02T04:45:15.758Z",
               "EditorCaption": ""
@@ -91,7 +91,8 @@
               "RelativeToolTip": "Assets\\Scripts\\Explosion.cs",
               "ViewState": "AQIAAEYAAAAAAAAAAAAAAHsAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:36:05.388Z"
+              "WhenOpened": "2024-04-21T01:36:05.388Z",
+              "EditorCaption": ""
             }
           ]
         }
