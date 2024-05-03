@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject sideSensor;
     [SerializeField] private GameObject bottomSensor;
     [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private Rigidbody2D obstacleBody;
 
     [SerializeField] private Vector2 sideSensorSize = new Vector2(0.2f, 0.4f);
     [SerializeField] private Vector2 bottomSensorSize = new Vector2(0.3f, 0.3f);
@@ -42,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float wallJumpingTime = 0.2f;
     private float horizontalInput;
+    private Text debugLabel;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,14 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerState = PlayerState.Idle;
+
+
+        var debugLabelObject = GameObject.Find("DebugLabel");
+
+        if (debugLabelObject != null)
+        {
+            debugLabel = GameObject.Find("DebugLabel").GetComponent<Text>();
+        }
     }
 
     // Update is called once per frame
@@ -105,11 +116,15 @@ public class PlayerMovement : MonoBehaviour
             HighScoreManager.ClearScores();
         }
 
-        // We need to check both isTouchingGround AND y velocity is not going upwards. 
-        animator.SetBool("grounded", isTouchingGround && body.velocity.y <= 0);
+        bool grounded = isTouchingGround && body.velocity.y <= 0;
 
-        //CommonScene.PrintDebugText($"On Slope: {IsOnSlope()}");
-        //CommonScene.PrintDebugText($"Player State: {playerState}\t - Grounded: {isTouchingGround}");
+        // We need to check both isTouchingGround AND y velocity is not going upwards. 
+        animator.SetBool("grounded", grounded);
+
+        obstacleBody.sharedMaterial.friction = grounded ? 1 : 0;
+
+        PrintDebugText($"Grounded: {grounded} : Friction: {obstacleBody.sharedMaterial.friction}");
+        //PrintDebugText($"Player State: {playerState}\t - Grounded: {isTouchingGround}");
     }
 
     private void FixedUpdate()
@@ -395,6 +410,15 @@ public class PlayerMovement : MonoBehaviour
     private void SetPlayerVelocity(Vector2 velocity)
     {
         body.velocity = velocity;
+    }
+
+
+    private void PrintDebugText(string text)
+    {
+        if (debugLabel != null)
+        {
+            debugLabel.text = text;
+        }
     }
 
     private enum PlayerState
