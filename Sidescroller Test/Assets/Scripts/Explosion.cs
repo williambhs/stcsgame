@@ -16,7 +16,7 @@ public class Explosion : MonoBehaviour
     private float timeRemaining = 3;
     private bool timerIsRunning = false;
     private Text countdownLabel;
-    private float explosionAnimationDuration = 3.5f;
+    private float explosionAnimationDuration = 2.0f;
 
     // Start is called before the first frame update
     void Start()
