@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6899407731106349342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665ffbd3a0215ac4796518a7888d98bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPower: 20
+  explosionPower: 17
   explosionRadius: 10
   maxDistance: 10
 --- !u!61 &-550177727772772552

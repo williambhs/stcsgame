@@ -28,7 +28,7 @@ public class Explosion : MonoBehaviour
     void Start()
     {
         timerIsRunning = true;
-        GetComponent<SpriteRenderer>().color = Color.green;
+        //GetComponent<SpriteRenderer>().color = Color.green;
         anim.SetTrigger("Explode");
         //countdownLabel = GameObject.Find("CountdownLabel").GetComponent<Text>();
 
@@ -54,7 +54,7 @@ public class Explosion : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
 
-                GetComponent<SpriteRenderer>().color = Color.red;
+                //GetComponent<SpriteRenderer>().color = Color.red;
 
                 PlayExplosionAnimation();
 
