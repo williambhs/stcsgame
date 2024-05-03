@@ -16,13 +16,14 @@ public class Explosion : MonoBehaviour
     private float timeRemaining = 3;
     private bool timerIsRunning = false;
     private Text countdownLabel;
+    private float explosionAnimationDuration = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         timerIsRunning = true;
         GetComponent<SpriteRenderer>().color = Color.green;
-        countdownLabel = GameObject.Find("CountdownLabel").GetComponent<Text>();
+        //countdownLabel = GameObject.Find("CountdownLabel").GetComponent<Text>();
 
         UpdateCountdownLabel(timeRemaining);
     }
@@ -48,6 +49,8 @@ public class Explosion : MonoBehaviour
 
                 GetComponent<SpriteRenderer>().color = Color.red;
 
+                PlayExplosionAnimation();
+
                 Exploded?.Invoke(this);
             }
         }
@@ -55,9 +58,22 @@ public class Explosion : MonoBehaviour
 
     private void UpdateCountdownLabel(float seconds)
     {
-        countdownLabel.text = seconds.ToString("0.00") + "s";
+        //countdownLabel.text = seconds.ToString("0.00") + "s";
     }
 
+    private void PlayExplosionAnimation()
+    {
+        // Add Play animation logic here.
+        //animator.Play("StateName");
+
+        // Remove this object after the animation is complete.
+        Invoke(nameof(RemoveExplodedObject), explosionAnimationDuration);
+    }
+
+    private void RemoveExplodedObject()
+    {
+        Destroy(this.gameObject);
+    }
 
     // Return a value between 0 and explostion power, based on the other object's position
     // reltative to this bomb

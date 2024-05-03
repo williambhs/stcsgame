@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float velocityX;
 
-            if ((isTouchingGround || horizontalInput != 0) &&
+            if ((horizontalInput != 0) &&
                 playerState != PlayerState.Sliding)
             {
                 velocityX = horizontalInput * speed;
@@ -290,11 +290,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (bombCooldown.HasExpired())
         {
-            if (bombInstance != null)
-            {
-                Destroy(bombInstance);
-            }
-
             bombInstance = Instantiate(bombPrefab);
             bombInstance.transform.position = new Vector3(transform.position.x + (0.5f * GetPlayerDirection()), transform.position.y, transform.position.z);
 
