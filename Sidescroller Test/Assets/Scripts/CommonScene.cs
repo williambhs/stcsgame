@@ -16,20 +16,43 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
         // Set ourself as the instance that will be used when static 
         // functions are called.
         instance = this;
-        debugLabel = GameObject.Find("DebugLabel").GetComponent<Text>();
+        //debugLabel = GameObject.Find("DebugLabel").GetComponent<Text>();
+
+        if (!TryShowNewHighScore())
+        {
+            ShowHighScores();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        //if (Input.GetKey(KeyCode.E))
+        //{
+        //    Debug_AddHighScore();
+        //}
+        //else if (Input.GetKey(KeyCode.H))
+        //{
+        //    ShowHighScores();
+        //}
+    }
+
+    private bool TryShowNewHighScore()
+    {
+        if (HighScoreManager.HasPendingHighScore())
         {
-            Debug_AddHighScore();
+            var addScore = Instantiate(addScorePrefab);
+
+            addScore.transform.SetParent(canvas.transform, false);
+
+            var scoreEntry = addScore.GetComponent<HighScoreEntry>();
+
+            scoreEntry.SetOwner(this);
+
+            return true;
         }
-        else if (Input.GetKey(KeyCode.H))
-        {
-            ShowHighScores();
-        }
+
+        return false;
     }
 
     private void ShowHighScores()
@@ -53,7 +76,7 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
         if (!overlayIsVisible)
         {
             overlayIsVisible = true;
-            HighScoreManager.SetPendingHighScore(9547);
+            HighScoreManager.TrySetPendingHighScore(9547);
 
             var addScore = Instantiate(addScorePrefab);
 
@@ -68,6 +91,8 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
     public void GameObjectDestroyed(GameObject gameObject)
     {
         overlayIsVisible = false;
+
+        ShowHighScores();
     }
 
     public static void PrintDebugText(string text)

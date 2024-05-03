@@ -23,10 +23,12 @@ public class GameFinishCollider : MonoBehaviour
     {
         if (collision.collider == playerCollider)
         {
+            gameTimerScript.gameEnded = true;
+
+            HighScoreManager.TrySetPendingHighScore((uint)(gameTimerScript.getCurrentTime() * 1000));
+
             //go to different scene
             SceneManager.LoadSceneAsync("EndScreen_Finished", LoadSceneMode.Single);
-
-            gameTimerScript.gameEnded = true;
         }
 
                 

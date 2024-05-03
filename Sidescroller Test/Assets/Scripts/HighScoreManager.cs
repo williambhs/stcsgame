@@ -23,7 +23,7 @@ public class HighScoreManager
         // Loop through the items see if this score is better than any of the existing scores.
         for (int i = 0; i < scores.Count; i++)
         {
-            if (score > scores[i].score)
+            if (score < scores[i].score)
             {
                 return true;
             }
@@ -41,7 +41,7 @@ public class HighScoreManager
         // Loop through the items and find the right place to insert the new score.
         for (int i = 0; i < scores.Count; i++)
         {
-            if (score > scores[i].score)
+            if (score < scores[i].score)
             {
                 var newScore = new PlayerScore(playerName, score);
 
@@ -104,14 +104,26 @@ public class HighScoreManager
         return pendingHighScore;
     }
 
-    internal static void SetPendingHighScore(uint score)
+    internal static bool TrySetPendingHighScore(uint score)
     {
-        pendingHighScore = score;
+        if (IsHighScore(score))
+        {
+            pendingHighScore = score;
+
+            return true;
+        }
+
+        return false;
     }
 
     internal static void ClearPendingHighScore()
     {
         pendingHighScore = 0;
+    }
+
+    internal static bool HasPendingHighScore()
+    {
+        return pendingHighScore > 0;
     }
 
     internal static string GetScoreFormattedString(uint score)
