@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         // We need to check both isTouchingGround AND y velocity is not going upwards. 
         animator.SetBool("grounded", grounded);
 
-        obstacleBody.sharedMaterial.friction = grounded ? 1 : 0;
+        //obstacleBody.sharedMaterial.friction = grounded ? 1 : 0;
 
         PrintDebugText($"Grounded: {grounded} : Friction: {obstacleBody.sharedMaterial.friction}");
         //PrintDebugText($"Player State: {playerState}\t - Grounded: {isTouchingGround}");
