@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Main Menu.unity
-    guid: fa54745dea69cf340ab835987190caaf
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/End Screen.unity
     guid: fa321577c58915d40acd43fb1c8238e3
   - enabled: 1
@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScreen_Finished.unity
     guid: d43eb6cdd7e75514386216800675f4b2
+  - enabled: 1
+    path: Assets/Scenes/Demo_Scene.unity
+    guid: e8cda4540cff2dc48a52b481031dc0d1
+  - enabled: 1
+    path: Assets/Misc/SpritesAndTilesets/DeadRevolver/PixelPrototypePlayerSprites/Demo/DemoScene.unity
+    guid: 47159767f6c46114db464ce21853782a
   m_configObjects: {}
