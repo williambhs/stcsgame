@@ -30,7 +30,16 @@ public class ButtonScript : MonoBehaviour
     {
         ChangeToScene("EndScreen_Finished");
     }
+
+    public void LoadAnimationTest()
+    {
+        ChangeToScene("DemoScene");
+    }
     
+    public void LoadDemo()
+    {
+        ChangeToScene("Demo_Scene");
+    }
     // delay buffer cuz unity sucks and switches the scene too fast
     IEnumerator ChangeScene(string sceneToChangeTo,float delay)
     {
