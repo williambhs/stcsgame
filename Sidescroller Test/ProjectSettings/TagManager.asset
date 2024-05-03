@@ -13,6 +13,7 @@ TagManager:
   - Platform
   - MenuMusic
   - GameMusic
+  - EndMusic
   layers:
   - Default
   - TransparentFX
