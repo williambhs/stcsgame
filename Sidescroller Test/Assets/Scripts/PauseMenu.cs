@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        GameObject.FindGameObjectWithTag("GameMusic").GetComponent<Music>().PauseMusic();
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
@@ -37,6 +38,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        GameObject.FindGameObjectWithTag("GameMusic").GetComponent<Music>().ResumeMusic();
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -45,7 +47,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("StartScreen_Finished");
     }
 
     public void QuitGame()
