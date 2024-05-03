@@ -8,6 +8,6 @@ public class AudioControllerEnd : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("EndMusic").GetComponent<Music>().PlayMusic();
         GameObject.FindGameObjectWithTag("GameMusic").GetComponent<Music>().StopMusic();
-        GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<Music>().StopMusic();
+       
     }
 }
