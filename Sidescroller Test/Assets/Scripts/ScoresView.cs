@@ -36,6 +36,7 @@ public class ScoresView : MonoBehaviour
     }
 
     private void OnCloseButtonClick()
+    {
         owner = null;
 
         // Load Main Menu from here.
