@@ -16,7 +16,6 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
         // Set ourself as the instance that will be used when static 
         // functions are called.
         instance = this;
-        //debugLabel = GameObject.Find("DebugLabel").GetComponent<Text>();
 
         if (!TryShowNewHighScore())
         {
@@ -95,13 +94,8 @@ public class CommonScene : MonoBehaviour, IGameObjectOwner
         ShowHighScores();
     }
 
-    public static void PrintDebugText(string text)
-    {
-        instance.debugLabel.text = text;
-    }
 
     private bool overlayIsVisible = false;
-    private Text debugLabel;
 
     private static CommonScene instance;
 }
