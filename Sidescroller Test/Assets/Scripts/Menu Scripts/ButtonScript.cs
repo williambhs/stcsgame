@@ -26,6 +26,11 @@ public class ButtonScript : MonoBehaviour
         ChangeToScene("Game_Finished");
     }
 
+    public void LoadLeaderboard()
+    {
+        ChangeToScene("EndScreen_Finished");
+    }
+    
     // delay buffer cuz unity sucks and switches the scene too fast
     IEnumerator ChangeScene(string sceneToChangeTo,float delay)
     {

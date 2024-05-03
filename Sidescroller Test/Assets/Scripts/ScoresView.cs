@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoresView : MonoBehaviour
 {
@@ -35,14 +36,7 @@ public class ScoresView : MonoBehaviour
     }
 
     private void OnCloseButtonClick()
-    {
-        //Destroy(this.gameObject);
-
-        if (owner != null)
-        {
-            //owner.GameObjectDestroyed(this.gameObject);
-            owner = null;
-        }
+        owner = null;
 
         // Load Main Menu from here.
         SceneManager.LoadSceneAsync("StartScreen_Finished", LoadSceneMode.Single);
