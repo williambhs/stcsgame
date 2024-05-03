@@ -292,6 +292,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Debug_Impulse()
+
     {
         Vector2 force = new Vector2(impulseX * GetPlayerDirection(), impulseY);
 

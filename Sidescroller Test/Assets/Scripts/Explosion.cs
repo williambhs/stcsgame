@@ -13,16 +13,23 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float explosionPower = 30;
     [SerializeField] private float explosionRadius = 10;
     [SerializeField] private float maxDistance;
+    private Animator anim;
     private float timeRemaining = 3;
     private bool timerIsRunning = false;
     private Text countdownLabel;
-    private float explosionAnimationDuration = 3.5f;
+    private float explosionAnimationDuration = 2.0f;
 
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     // Start is called before the first frame update
     void Start()
     {
         timerIsRunning = true;
         GetComponent<SpriteRenderer>().color = Color.green;
+        anim.SetTrigger("Explode");
         //countdownLabel = GameObject.Find("CountdownLabel").GetComponent<Text>();
 
         UpdateCountdownLabel(timeRemaining);
