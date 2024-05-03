@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\audio stuff\\audiocontrollermain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\audio stuff\\audiocontrollermain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\textrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|c:\\users\\cyrus\\source\\repos\\stcsgame\\sidescroller test\\assets\\textrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\textrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\audio stuff\\audiocontrollermain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|solutionrelative:assets\\audio stuff\\audiocontrollermain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5674773D-FAB2-72DD-E7FB-C0E8FB61505E}|Assembly-CSharp.csproj|C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\assets\\scripts\\reworkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,23 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AudioControllerMain.cs",
-              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Audio Stuff\\AudioControllerMain.cs",
-              "RelativeDocumentMoniker": "Assets\\Audio Stuff\\AudioControllerMain.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Audio Stuff\\AudioControllerMain.cs",
-              "RelativeToolTip": "Assets\\Audio Stuff\\AudioControllerMain.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T06:48:42.547Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "GameTimerScript.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\GameTimerScript.cs",
               "RelativeDocumentMoniker": "Assets\\GameTimerScript.cs",
@@ -74,48 +62,12 @@
               "RelativeToolTip": "Assets\\GameTimerScript.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAMwCkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T13:43:00.706Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CameraFollow.cs",
-              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\CameraFollow.cs",
-              "RelativeDocumentMoniker": "Assets\\CameraFollow.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\CameraFollow.cs",
-              "RelativeToolTip": "Assets\\CameraFollow.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABNAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:09:01.286Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerMovement.cs",
-              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\PlayerMovement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\PlayerMovement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAACUBAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T06:46:53.677Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Explosion.cs",
-              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Explosion.cs",
-              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Explosion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:36:05.388Z",
+              "WhenOpened": "2024-05-03T13:43:00.706Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "TextRotation.cs",
               "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\TextRotation.cs",
               "RelativeDocumentMoniker": "Assets\\TextRotation.cs",
@@ -123,7 +75,47 @@
               "RelativeToolTip": "Assets\\TextRotation.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAB4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:50:30.036Z"
+              "WhenOpened": "2024-05-03T12:50:30.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CameraFollow.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\CameraFollow.cs",
+              "RelativeDocumentMoniker": "Assets\\CameraFollow.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\CameraFollow.cs",
+              "RelativeToolTip": "Assets\\CameraFollow.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T12:09:01.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
+              "ViewState": "AQIAABIBAAAAAAAAAAAEwCMBAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T06:46:53.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Explosion.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Explosion.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Scripts\\Explosion.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Explosion.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAiwEIAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-21T01:36:05.388Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -147,7 +139,8 @@
               "RelativeToolTip": "Assets\\Scripts\\HighScoreEntry.cs",
               "ViewState": "AQIAABUAAAAAAAAAAADgvywAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T04:24:50.674Z"
+              "WhenOpened": "2024-05-03T04:24:50.674Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -160,6 +153,18 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-02T04:45:15.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AudioControllerMain.cs",
+              "DocumentMoniker": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Audio Stuff\\AudioControllerMain.cs",
+              "RelativeDocumentMoniker": "Assets\\Audio Stuff\\AudioControllerMain.cs",
+              "ToolTip": "C:\\Users\\cyrus\\source\\repos\\stcsgame\\Sidescroller Test\\Assets\\Audio Stuff\\AudioControllerMain.cs",
+              "RelativeToolTip": "Assets\\Audio Stuff\\AudioControllerMain.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T06:48:42.547Z"
             },
             {
               "$type": "Document",
