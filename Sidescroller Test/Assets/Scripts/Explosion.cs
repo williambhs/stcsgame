@@ -17,7 +17,7 @@ public class Explosion : MonoBehaviour
     private float timeRemaining = 3;
     private bool timerIsRunning = false;
     private Text countdownLabel;
-    private float explosionAnimationDuration = 2.0f;
+    private float explosionAnimationDuration = 0.3f;
 
 
     private void Awake()
@@ -29,7 +29,7 @@ public class Explosion : MonoBehaviour
     {
         timerIsRunning = true;
         //GetComponent<SpriteRenderer>().color = Color.green;
-        anim.SetTrigger("Explode");
+        
         //countdownLabel = GameObject.Find("CountdownLabel").GetComponent<Text>();
 
         UpdateCountdownLabel(timeRemaining);
@@ -72,6 +72,7 @@ public class Explosion : MonoBehaviour
     {
         // Add Play animation logic here.
         //animator.Play("StateName");
+        anim.SetTrigger("Explode");
 
         // Remove this object after the animation is complete.
         Invoke(nameof(RemoveExplodedObject), explosionAnimationDuration);
