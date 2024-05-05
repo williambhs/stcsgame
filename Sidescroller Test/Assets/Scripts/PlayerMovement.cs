@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject sideSensor;
     [SerializeField] private GameObject bottomSensor;
     [SerializeField] private LayerMask obstacleLayer;
-    [SerializeField] private Rigidbody2D obstacleBody;
 
     [SerializeField] private Vector2 sideSensorSize = new Vector2(0.2f, 0.4f);
     [SerializeField] private Vector2 bottomSensorSize = new Vector2(0.3f, 0.3f);
@@ -45,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float horizontalInput;
     private Text debugLabel;
+    private const float c_epsilon = 0.0001f;
 
     // Start is called before the first frame update
     void Start()
@@ -116,14 +116,11 @@ public class PlayerMovement : MonoBehaviour
             HighScoreManager.ClearScores();
         }
 
-        bool grounded = isTouchingGround && body.velocity.y <= 0;
-
         // We need to check both isTouchingGround AND y velocity is not going upwards. 
-        animator.SetBool("grounded", grounded);
+        animator.SetBool("grounded", isTouchingGround && body.velocity.y <= c_epsilon);
 
-        //obstacleBody.sharedMaterial.friction = grounded ? 1 : 0;
+        UpdatePlayerFriction();
 
-        PrintDebugText($"Grounded: {grounded} : Friction: {obstacleBody.sharedMaterial.friction}");
         //PrintDebugText($"Player State: {playerState}\t - Grounded: {isTouchingGround}");
     }
 
@@ -157,6 +154,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 SetPlayerDirection(-1);
             }
+        }
+    }
+
+    private void UpdatePlayerFriction()
+    {
+        var newFriction = (isTouchingGround && playerState != PlayerState.Sliding /*&& !IsOnSlope()*/) ? 1 : 0;
+
+        if (body.sharedMaterial.friction != newFriction)
+        {
+            body.sharedMaterial.friction = newFriction;
+
+            // This is a workaround. When we update the material, we must disable/enable
+            // to the collider to get it to pick up the new values.
+            var collider = GetComponent<Collider2D>();
+            collider.enabled = false;
+            collider.enabled = true;
         }
     }
 
