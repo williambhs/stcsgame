@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float impulseX = 0.25f;
     [SerializeField] private float impulseY = 0.25f;
     [SerializeField] private float slopeYVelocity = 3.0f;
-    [SerializeField] private bool useSlopeAssistance = false;
+    [SerializeField] private bool useSlopeAssistance = true;
 
     private Rigidbody2D body;
     private Animator animator;
