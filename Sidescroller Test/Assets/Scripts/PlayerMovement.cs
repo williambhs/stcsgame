@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Debug Stuff")]
     [SerializeField] private float impulseX = 0.25f;
     [SerializeField] private float impulseY = 0.25f;
+    [SerializeField] private float slopeYVelocity = 3.0f;
+    [SerializeField] private bool useSlopeAssistance = false;
 
     private Rigidbody2D body;
     private Animator animator;
@@ -45,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private Text debugLabel;
     private const float c_epsilon = 0.0001f;
+    private Vector2 slopeNormal;
+    private Vector2 slopeNormalPerpendicular;
 
     // Start is called before the first frame update
     void Start()
@@ -143,7 +147,37 @@ public class PlayerMovement : MonoBehaviour
                 horizontalInput = 0;
             }
 
-            SetPlayerVelocity(new Vector2(velocityX, body.velocity.y));
+            var velocityY = body.velocity.y;
+
+            if (useSlopeAssistance && IsOnSlope())
+            {
+                if (horizontalInput > 0)
+                {
+                    if (slopeNormal.x < 0)
+                    {
+                        velocityY = slopeYVelocity;
+                    }
+                    else
+                    {
+                        velocityY = -slopeYVelocity;
+                    }
+                }
+                else if (horizontalInput < 0)
+                {
+                    if (slopeNormal.x < 0)
+                    {
+                        velocityY = -slopeYVelocity;
+                    }
+                    else
+                    {
+                        velocityY = slopeYVelocity;
+                    }
+                }
+            
+                //Debug.Log($"VelocityY: {velocityY} - slopeNormalX: {slopeNormal.x} - HInput: {horizontalInput}");
+            }
+
+            SetPlayerVelocity(new Vector2(velocityX, velocityY));
 
             // Flip player when moving in respective direction
             if (horizontalInput > 0.01f)
@@ -414,6 +448,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (slopeHit)
         {
+            slopeNormal = slopeHit.normal;
+            slopeNormalPerpendicular = Vector2.Perpendicular(slopeHit.normal).normalized;
+
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
         }
