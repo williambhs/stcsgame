@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public static bool isPaused;
+
+    public AudioControllerMenu audioController;
     void Start()
     {
         pauseMenu.SetActive(false);
@@ -48,6 +50,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("StartScreen_Finished");
+        audioController.PlayMenu();
     }
 
     public void QuitGame()
