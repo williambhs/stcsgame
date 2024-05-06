@@ -13,6 +13,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float explosionPower = 30;
     [SerializeField] private float explosionRadius = 10;
     [SerializeField] private float maxDistance;
+    [SerializeField] private BombTimer timer;
     private Animator anim;
     private float timeRemaining = 3;
     private bool timerIsRunning = false;
@@ -33,6 +34,7 @@ public class Explosion : MonoBehaviour
         //countdownLabel = GameObject.Find("CountdownLabel").GetComponent<Text>();
 
         UpdateCountdownLabel(timeRemaining);
+        
     }
 
     // Update is called once per frame
