@@ -51,7 +51,7 @@ public class BombTimer : MonoBehaviour
         {
             secondCurrentTime = 0;
         }
-        timertext.text = "Bomb Time: " + currentTime.ToString();
+        timertext.text = "Bomb Timer: " + currentTime.ToString();
         
     }
 
