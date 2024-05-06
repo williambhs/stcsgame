@@ -39,7 +39,7 @@ public class GameTimerScript : MonoBehaviour
 
     private void SetTimerText()
     {
-        timerText.text = currentTime.ToString("0.00");
+        timerText.text = "Run Time: " + currentTime.ToString("0.00");
     }
     public float getCurrentTime()
     {
